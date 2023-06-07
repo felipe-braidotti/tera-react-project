@@ -1,4 +1,8 @@
 import React from "react";
+import user1 from "../../images/placeholders/user-1.svg";
+import post1 from "../../images/placeholders/post-1.svg";
+import post2 from "../../images/placeholders/post-2.svg";
+import post3 from "../../images/placeholders/post-3.svg";
 
 export default function UserBlog() {
   return (
@@ -15,11 +19,7 @@ export default function UserBlog() {
       <div className="user-blog">
         <div className="user-blog__header">
           <div className="user-blog__header-photo">
-            <img
-              src="images/placeholders/user-1.jpg"
-              class="responsive avatar"
-              alt=""
-            />
+            <img src={user1} class="responsive avatar" alt="" />
           </div>
           <h1 className="user-blog__header-title">Chris Hudson</h1>
           <p className="user-blog__header-bio">
@@ -33,11 +33,7 @@ export default function UserBlog() {
         <div className="user-blog__posts">
           <div className="user-blog__posts-item">
             <div className="user-blog__posts-item-photo">
-              <img
-                src="images/placeholders/post-1.jpg"
-                class="responsive"
-                alt=""
-              />
+              <img src={post1} class="responsive" alt="" />
             </div>
             <h2 className="user-blog__posts-item-title">
               Usando React como SPA
@@ -46,11 +42,7 @@ export default function UserBlog() {
           </div>
           <div clasNames="user-blog__posts-item">
             <div class="user-blog__posts-item-photo">
-              <img
-                src="images/placeholders/post-2.jpg"
-                class="responsive"
-                alt=""
-              />
+              <img src={post2} class="responsive" alt="" />
             </div>
             <h2 className="user-blog__posts-item-title">Você conhece o JSX?</h2>
             <div className="user-blog__posts-date">Publicado em 14/06/2022</div>
@@ -71,11 +63,7 @@ export default function UserBlog() {
           </div>
           <div className="user-blog__posts-item">
             <div className="user-blog__posts-item-photo">
-              <img
-                src="images/placeholders/post-3.jpg"
-                class="responsive"
-                alt=""
-              />
+              <img src={post3} class="responsive" alt="" />
             </div>
             <h2 class="user-blog__posts-item-title">
               SSG, SPA e SSR: Qual usar?
