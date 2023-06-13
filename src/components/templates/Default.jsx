@@ -7,8 +7,8 @@ export default function Default(props) {
   const [open, setOpen] = useState(false);
   return (
     <div className="wapper">
-      <DrawerMenu />
-      <AppHeader />
+      <DrawerMenu open={open} />
+      <AppHeader setOpen={setOpen} />
       {props.children}
       <AppFooter />
     </div>
