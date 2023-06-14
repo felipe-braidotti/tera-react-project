@@ -1,21 +1,58 @@
-import React from "react";
+import { React, useState } from "react";
+import { useParams } from "react-router-dom;";
 
 import Default from "../templates/Default";
+import Loading from "../atoms/Loading";
 
 export default function UserPostForm() {
-  return (
+  const { userId } = useParams();
+
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault(); // anula o recarregamento da página após um Submit
+
+    setIsLoading(true);
+
+    fetch(`https://63cf09718a780ae6e6710dbe.mockapi.io/users/${userId}/posts`, {
+      method: "POST",
+      body: JSON.stringify({ title: title, content: content }),
+      headers: { "Content-Type": "application/json" },
+    }).then(() => {
+      setTitle("");
+      setContent("");
+      setIsLoading(false);
+    });
+  };
+
+  return isLoading ? (
+    <Loading />
+  ) : (
     <Default>
       <div className="create-post">
         <h1>Criar</h1>
 
-        <form className="create-post__form">
+        <form onSubmit={handleFormSubmit} className="create-post__form">
           <div className="create-post__form-name">
             <label for="name">Título</label>
-            <input type="text" id="name" name="title" />
+            <input
+              value={title}
+              onChange={(event) => setTitle(event.target.value)}
+              type="text"
+              id="name"
+              name="title"
+            />
           </div>
           <div className="create-post__form-content">
             <label for="content">Conteúdo</label>
-            <textarea name="content" id="content"></textarea>
+            <textarea
+              value={content}
+              onChange={(event) => setContent(event.target.value)}
+              name="content"
+              id="content"
+            ></textarea>
           </div>
           <button className="button-primary">Salvar</button>
         </form>
